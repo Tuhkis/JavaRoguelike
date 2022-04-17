@@ -7,7 +7,6 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 import java.awt.geom.AffineTransform;
-import java.awt.Point;
 import java.awt.Graphics2D;
 import java.awt.Image;
 public class Sprite {

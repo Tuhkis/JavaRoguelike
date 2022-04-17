@@ -16,7 +16,7 @@ import com.tuhkisgames.gameObjects.Player;
 
 public class Game extends Canvas implements Runnable {
 
-    public static final int WIDTH = 1024, HEIGHT = WIDTH / 12 * 8;
+    public static final int WIDTH = 1024, HEIGHT = 600;
 
     private Thread thread;
     private boolean RUNNING = false;

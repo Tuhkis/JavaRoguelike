@@ -32,7 +32,7 @@ public class Game extends Canvas implements Runnable {
         mainScene = new Scene();
         this.addKeyListener(input);
         this.addMouseListener(mInput);
-        new Window(WIDTH, HEIGHT, "GAME WINDOW", this);
+        new Window(WIDTH, HEIGHT, "Roguelite Game", this);
 
         // Create Game Objects
         mainScene.addObject(new Player(128, 128, mainScene.getCam()));

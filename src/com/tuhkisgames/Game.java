@@ -12,6 +12,7 @@ import com.tuhkisgames.engine.KeyInput;
 import com.tuhkisgames.engine.MouseInput;
 import com.tuhkisgames.engine.Scene;
 import com.tuhkisgames.engine.Window;
+import com.tuhkisgames.gameObjects.Player;
 
 public class Game extends Canvas implements Runnable {
 
@@ -34,6 +35,7 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "GAME WINDOW", this);
 
         // Create Game Objects
+        mainScene.addObject(new Player(128, 128, mainScene.getCam()));
 
         mainScene.getCam().setTrauma(0);
     }

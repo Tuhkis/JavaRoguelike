@@ -35,7 +35,7 @@ public class Sprite {
         Image img = image.getSubimage(f * (image.getWidth() / frames), 0, image.getWidth() / frames, image.getHeight()).getScaledInstance(w, h, BufferedImage.SCALE_FAST);
         trans.setTransform(identity);
         trans.translate(x, y);
-        trans.rotate(rot, w / 2, h / 2);
+        trans.rotate(Math.toRadians(rot), w / 2, h / 2);
 
         g2d.drawImage(img, trans, null);
     }

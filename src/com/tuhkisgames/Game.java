@@ -10,7 +10,6 @@ import java.awt.Point;
 import com.tuhkisgames.engine.FPS;
 import com.tuhkisgames.engine.KeyInput;
 import com.tuhkisgames.engine.MouseInput;
-import com.tuhkisgames.engine.Rect;
 import com.tuhkisgames.engine.Scene;
 import com.tuhkisgames.engine.Window;
 

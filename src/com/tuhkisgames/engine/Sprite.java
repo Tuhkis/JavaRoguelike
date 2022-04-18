@@ -38,4 +38,7 @@ public class Sprite {
 
         g2d.drawImage(img, trans, null);
     }
+
+    public int getW() { return w; }
+    public int getH() { return h; }
 }

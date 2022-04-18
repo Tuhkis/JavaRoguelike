@@ -10,6 +10,7 @@ import java.awt.Point;
 import com.tuhkisgames.engine.FPS;
 import com.tuhkisgames.engine.KeyInput;
 import com.tuhkisgames.engine.MouseInput;
+import com.tuhkisgames.engine.Rect;
 import com.tuhkisgames.engine.Scene;
 import com.tuhkisgames.engine.Window;
 import com.tuhkisgames.gameObjects.Player;
@@ -33,6 +34,9 @@ public class Game extends Canvas implements Runnable {
         this.addKeyListener(input);
         this.addMouseListener(mInput);
         new Window(WIDTH, HEIGHT, "Roguelite Game", this);
+
+        // Make Tiles
+        mainScene.addTile(new Rect(128, 128, 512, 32));
 
         // Create Game Objects
         mainScene.addObject(new Player(128, 128, mainScene.getCam()));

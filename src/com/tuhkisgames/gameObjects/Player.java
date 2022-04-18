@@ -43,15 +43,7 @@ public class Player extends GameObject {
         rtest.setRY(hitbox.getY() + hitbox.getH() / 2);
 
         rtest.tick(tiles);
-
-        if (rtest.getCollidingObjects() != null) {
-            if (rtest.getCollidingObjects().getClass() == new TestObject(0, 0, cam).getClass()) {
-                TestObject obj = (TestObject) (rtest.getCollidingObjects());
-                if (Game.mInput.isPressed(1))
-                obj.die();
-            }
-        }
-
+        handelShooting();
     }
 
     @Override
@@ -80,5 +72,17 @@ public class Player extends GameObject {
         rot = -((int) ((180 / Math.PI) * -Math.atan2(rel_y, rel_x)));
 
         rtest.setRot(rot);
+    }
+    private void handelShooting() {
+        if (Game.mInput.rRelease) {
+            Game.mInput.rRelease = false;
+
+            if (rtest.getCollidingObjects() != null) {
+                if (rtest.getCollidingObjects().getClass() == new TestObject(0, 0, cam).getClass()) {
+                    TestObject obj = (TestObject) (rtest.getCollidingObjects());
+                    obj.die();
+                }
+            }
+        }
     }
 }

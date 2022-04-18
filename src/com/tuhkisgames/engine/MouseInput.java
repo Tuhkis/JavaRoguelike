@@ -6,6 +6,7 @@ import java.util.LinkedList;
 
 public class MouseInput extends MouseAdapter {
     private LinkedList<Integer> pressed = new LinkedList<Integer>();
+    public boolean rRelease = false;
 
     public MouseInput() {
         super();
@@ -25,6 +26,9 @@ public class MouseInput extends MouseAdapter {
 
         if (pressed.contains(butt)) {
             pressed.removeLastOccurrence(butt);
+        }
+        if (butt == 1) {
+            rRelease = true;
         }
     }
 

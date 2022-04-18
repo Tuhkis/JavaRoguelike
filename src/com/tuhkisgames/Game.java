@@ -11,11 +11,14 @@ import java.awt.Point;
 import com.tuhkisgames.engine.FPS;
 import com.tuhkisgames.engine.KeyInput;
 import com.tuhkisgames.engine.MouseInput;
-import com.tuhkisgames.engine.Rect;
 import com.tuhkisgames.engine.Scene;
 import com.tuhkisgames.engine.Window;
 import com.tuhkisgames.gameObjects.Player;
 import com.tuhkisgames.gameObjects.TestObject;
+
+import java.awt.Component;
+import javax.swing.JLayer;
+
 
 public class Game extends Canvas implements Runnable {
 
@@ -32,21 +35,25 @@ public class Game extends Canvas implements Runnable {
 
     private static Random r = new Random();
 
+    Window win;
+
     public Game() {
         mousePosition = new Point(0, 0);
         mainScene = new Scene();
         this.addKeyListener(input);
         this.addMouseListener(mInput);
-        new Window(WIDTH, HEIGHT, "Roguelite Game", this);
+        win = new Window(WIDTH, HEIGHT, "Roguelite Game", this);
+
+        // win.frame.initComponents();
 
         // Make Tiles
         //mainScene.addTile(new Rect(128, 128, 512, 32));
 
         // Create Game Objects
-        mainScene.addObject(new Player(128, 128, mainScene.getCam()));
+        mainScene.addObject(new Player(0, 0, mainScene.getCam()));
 
-        for (int i = 0; i < 100; i++) {
-            mainScene.addObject(new TestObject(r.nextInt(1025), r.nextInt(1025), mainScene.getCam()));
+        for (int i = 0; i < 64; i++) {
+            mainScene.addObject(new TestObject(r.nextInt(999), r.nextInt(999), mainScene.getCam()));
         }
         mainScene.getCam().setTrauma(0);
     }
@@ -106,6 +113,8 @@ public class Game extends Canvas implements Runnable {
         g.fillRect(0, 0, WIDTH, HEIGHT);
 
         mainScene.render(g);
+        // blurLayer.paint(g);
+        // g.drawImage(, 0, 0, this;
 
         g.dispose();
         bs.show();

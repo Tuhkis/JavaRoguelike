@@ -8,8 +8,9 @@ import javax.swing.JFrame;
 import com.tuhkisgames.Game;
 
 public class Window extends Canvas {
+    public JFrame frame;
     public Window(int width, int height, String title, Game game) {
-        JFrame frame = new JFrame(title);
+        frame = new JFrame(title);
 
         frame.setPreferredSize(new Dimension(width, height));
         frame.setMinimumSize(new Dimension(width, height));

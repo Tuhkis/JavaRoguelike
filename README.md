@@ -1,13 +1,13 @@
-## Getting Started
+## Notes
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
-
+I'm writing this with vscode java. I'm using 18-zulu java right now.
 ## Folder Structure
 
-The workspace contains two folders by default, where:
+The workspace contains two folders, where:
 
 - `src`: the folder to maintain sources
 - `lib`: the folder to maintain dependencies
+- `assets`: the folder that contains the assets (like sprites, sfx, etc)
 
 Meanwhile, the compiled output files will be generated in the `bin` folder by default.
 

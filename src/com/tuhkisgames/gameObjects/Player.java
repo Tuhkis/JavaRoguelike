@@ -2,7 +2,6 @@ package com.tuhkisgames.gameObjects;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.LinkedList;
 
 import com.tuhkisgames.Game;
@@ -45,7 +44,14 @@ public class Player extends GameObject {
 
         rtest.tick(tiles);
 
-        System.out.println(rtest.getCollidingObjects());
+        if (rtest.getCollidingObjects() != null) {
+            if (rtest.getCollidingObjects().getClass() == new TestObject(0, 0, cam).getClass()) {
+                TestObject obj = (TestObject) (rtest.getCollidingObjects());
+                if (Game.mInput.isPressed(1))
+                obj.die();
+            }
+        }
+
     }
 
     @Override

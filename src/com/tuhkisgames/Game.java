@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 import java.awt.Font;
 import java.awt.Point;
 
@@ -29,6 +30,8 @@ public class Game extends Canvas implements Runnable {
     public static MouseInput mInput = new MouseInput();
     public static Point mousePosition;
 
+    private static Random r = new Random();
+
     public Game() {
         mousePosition = new Point(0, 0);
         mainScene = new Scene();
@@ -37,11 +40,14 @@ public class Game extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, "Roguelite Game", this);
 
         // Make Tiles
-        mainScene.addTile(new Rect(128, 128, 512, 32));
+        //mainScene.addTile(new Rect(128, 128, 512, 32));
 
         // Create Game Objects
         mainScene.addObject(new Player(128, 128, mainScene.getCam()));
-        mainScene.addObject(new TestObject(256, 256, mainScene.getCam()));
+
+        for (int i = 0; i < 100; i++) {
+            mainScene.addObject(new TestObject(r.nextInt(1025), r.nextInt(1025), mainScene.getCam()));
+        }
         mainScene.getCam().setTrauma(0);
     }
 

@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class Raycast extends GameObject {
     float rot = 0;
-    int lenght = 1024;
+    int lenght = 64;
     int rx, ry = 0;
 
     public Raycast(int p_x, int p_y, Camera p_cam, float p_rot) {
@@ -22,11 +22,21 @@ public class Raycast extends GameObject {
         hitbox.setX(rx);
         hitbox.setY(ry);
 
+        float tx1 = (float) (hitbox.getX() + Math.cos(Math.toRadians(rot)) * 16);
+        float ty1 = (float) (hitbox.getY() + Math.sin(Math.toRadians(rot)) * 16);
+        hitbox.setX( (int) tx1 );
+        hitbox.setY( (int) ty1 );
+
         for (int i = 0; i < lenght; i++) {
-            hitbox.setX( (int) (hitbox.getX() + Math.cos(Math.toRadians(rot)) * hitbox.getW()) );
-            hitbox.setY( (int) (hitbox.getY() + Math.sin(Math.toRadians(rot)) * hitbox.getH()) );
+            float tx = (float) (hitbox.getX() + Math.cos(Math.toRadians(rot)) * hitbox.getW());
+            float ty = (float) (hitbox.getY() + Math.sin(Math.toRadians(rot)) * hitbox.getH());
+            hitbox.setX( (int) tx );
+            hitbox.setY( (int) ty );
 
             if (!hitbox.collideTiles(tiles).isEmpty()) {
+                break;
+            }
+            if (getCollidingObjects() != null) {
                 break;
             }
         }

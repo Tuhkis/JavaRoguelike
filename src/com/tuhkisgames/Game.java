@@ -14,6 +14,7 @@ import com.tuhkisgames.engine.Rect;
 import com.tuhkisgames.engine.Scene;
 import com.tuhkisgames.engine.Window;
 import com.tuhkisgames.gameObjects.Player;
+import com.tuhkisgames.gameObjects.TestObject;
 
 public class Game extends Canvas implements Runnable {
 
@@ -40,7 +41,7 @@ public class Game extends Canvas implements Runnable {
 
         // Create Game Objects
         mainScene.addObject(new Player(128, 128, mainScene.getCam()));
-
+        mainScene.addObject(new TestObject(256, 256, mainScene.getCam()));
         mainScene.getCam().setTrauma(0);
     }
 

@@ -18,7 +18,7 @@ public class Player extends GameObject {
 
     private Sprite spr;
 
-    private Raycast rtest = new Raycast(hitbox.getX(), hitbox.getY(), cam, rot);
+    private Raycast rtest = new Raycast(0, 0, cam, rot);
 
     public Player(int p_x, int p_y, Camera p_cam) {
         super(p_x, p_y, p_cam);
@@ -32,10 +32,20 @@ public class Player extends GameObject {
         move();
         hitbox.move((int) (velX), (int) (velY), tiles);
 
+        Game.getMainScene().getCam().setX(
+            (int) ( hitbox.getX() + hitbox.getW() / 2 - Game.WIDTH / 2 * (1 - 0.05) + Game.mousePosition.getX() * 0.05 )
+        );
+
+        Game.getMainScene().getCam().setY(
+            (int) ( hitbox.getY() + hitbox.getH() / 2 - Game.HEIGHT / 2 * (1 - 0.05) + Game.mousePosition.getY() * 0.05 )
+        );
+
         rtest.setRX(hitbox.getX() + hitbox.getW() / 2);
         rtest.setRY(hitbox.getY() + hitbox.getH() / 2);
 
         rtest.tick(tiles);
+
+        System.out.println(rtest.getCollidingObjects());
     }
 
     @Override

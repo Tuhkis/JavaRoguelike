@@ -27,11 +27,14 @@ public class Raycast extends GameObject {
         hitbox.setX( (int) tx1 );
         hitbox.setY( (int) ty1 );
 
-        for (int i = 0; i < lenght; i++) {
-            float tx = (float) (hitbox.getX() + Math.cos(Math.toRadians(rot)) * hitbox.getW());
-            float ty = (float) (hitbox.getY() + Math.sin(Math.toRadians(rot)) * hitbox.getH());
-            hitbox.setX( (int) tx );
-            hitbox.setY( (int) ty );
+        float opx = (float) (hitbox.getX());
+        float opy = (float) (hitbox.getY());
+
+        for (int i = 0; i < 100; i++) {
+            opx += (float) (Math.cos(Math.toRadians(rot)) * hitbox.getW());
+            opy += (float) (Math.sin(Math.toRadians(rot)) * hitbox.getH());
+            hitbox.setX( (int) opx );
+            hitbox.setY( (int) opy );
 
             if (!hitbox.collideTiles(tiles).isEmpty()) {
                 break;

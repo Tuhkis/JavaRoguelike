@@ -16,10 +16,6 @@ import com.tuhkisgames.engine.Window;
 import com.tuhkisgames.gameObjects.Player;
 import com.tuhkisgames.gameObjects.TestObject;
 
-import java.awt.Component;
-import javax.swing.JLayer;
-
-
 public class Game extends Canvas implements Runnable {
 
     public static final int WIDTH = 1024, HEIGHT = 600;
@@ -52,7 +48,7 @@ public class Game extends Canvas implements Runnable {
         // Create Game Objects
         mainScene.addObject(new Player(0, 0, mainScene.getCam()));
 
-        for (int i = 0; i < 64; i++) {
+        for (int i = 0; i < 128; i++) {
             mainScene.addObject(new TestObject(r.nextInt(999), r.nextInt(999), mainScene.getCam()));
         }
         mainScene.getCam().setTrauma(0);

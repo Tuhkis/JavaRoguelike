@@ -10,6 +10,7 @@ import com.tuhkisgames.engine.GameObject;
 import com.tuhkisgames.engine.Raycast;
 import com.tuhkisgames.engine.Rect;
 import com.tuhkisgames.engine.Sprite;
+import com.tuhkisgames.gameObjects.enemies.BaseEnemy;
 
 public class Player extends GameObject {
     private int moveSpeed = 300;
@@ -78,9 +79,9 @@ public class Player extends GameObject {
             Game.mInput.rRelease = false;
 
             if (rtest.getCollidingObjects() != null) {
-                if (rtest.getCollidingObjects().getClass() == new TestObject(0, 0, cam).getClass()) {
-                    TestObject obj = (TestObject) (rtest.getCollidingObjects());
-                    obj.die();
+                if (rtest.getCollidingObjects().getClass() == new BaseEnemy(0, 0, cam).getClass()) {
+                    BaseEnemy obj = (BaseEnemy) (rtest.getCollidingObjects());
+                    obj.damage(5);
                 }
             }
         }

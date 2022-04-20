@@ -15,6 +15,7 @@ import com.tuhkisgames.engine.Scene;
 import com.tuhkisgames.engine.Window;
 import com.tuhkisgames.gameObjects.Player;
 import com.tuhkisgames.gameObjects.TestObject;
+import com.tuhkisgames.gameObjects.enemies.BaseEnemy;
 
 public class Game extends Canvas implements Runnable {
 
@@ -49,7 +50,7 @@ public class Game extends Canvas implements Runnable {
         mainScene.addObject(new Player(0, 0, mainScene.getCam()));
 
         for (int i = 0; i < 128; i++) {
-            mainScene.addObject(new TestObject(r.nextInt(999), r.nextInt(999), mainScene.getCam()));
+            mainScene.addObject(new BaseEnemy(r.nextInt(999), r.nextInt(999), mainScene.getCam()));
         }
         mainScene.getCam().setTrauma(0);
     }

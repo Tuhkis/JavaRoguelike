@@ -1,8 +1,7 @@
 ## Notes
 
-I'm writing this with vscode java. I'm using 18-zulu java right now.
+I'm writing this with vscode java.
 
-> I believe that it will mostly work with other versions!
 ## Folder Structure
 
 The workspace contains two folders, where:
